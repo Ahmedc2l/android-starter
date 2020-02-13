@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">User Auth Starter</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- TODO add both twitter key and secret here. -->
+    <string name="twitter_key" />
+    <string name="twitter_secret" />
+
+    <!-- TODO add both facebook app id and protocol scheme from your developer account -->
+    <string name="facebook_app_id" />
+    <string name="fb_login_protocol_scheme" />
+
+    <string name="skip_intro">Skip</string>
+    <string name="next_intro">Next</string>
+
+</resources>
