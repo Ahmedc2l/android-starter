@@ -17,8 +17,8 @@ public class AdapterIntroViewPager extends RecyclerView.Adapter<AdapterIntroView
     private List<Integer> images;
 
     public AdapterIntroViewPager() {
+        // TODO add intro pages images
         images = new ArrayList<>();
-        images.add(R.drawable.ahly);
         images.add(R.drawable.ic_launcher_foreground);
     }
 
@@ -39,7 +39,7 @@ public class AdapterIntroViewPager extends RecyclerView.Adapter<AdapterIntroView
 
     @Override
     public int getItemCount() {
-        return images == null ? 0 : images.size();
+        return images.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

@@ -67,6 +67,7 @@ public class MyDialog {
      * @param layout the dialog layout
      * @param gravity the gravity position the dialog should be displayed in
      * @param isCancelable whether the dialog should be auto cancelable or no
+     * @return Dialog instance
      * */
     public Dialog getDialogInstance(int layout, int gravity, boolean isCancelable){
         Dialog dialog = new Dialog(activity);

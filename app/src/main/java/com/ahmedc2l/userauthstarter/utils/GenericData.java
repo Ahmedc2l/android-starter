@@ -1,4 +1,4 @@
-package com.ahmedc2l.userauthstarter.socialAuthProviders;
+package com.ahmedc2l.userauthstarter.utils;
 
 /**
  * <h1>GenericData</h1>

@@ -1,5 +1,7 @@
 package com.ahmedc2l.userauthstarter.socialAuthProviders;
 
+import com.ahmedc2l.userauthstarter.utils.GenericData;
+
 /**
  * <h1>AuthProviderCallback</h1>
  * <p>A callback interface that returns a generic class contains user's data.</p>

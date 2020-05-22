@@ -1,5 +1,6 @@
 package com.ahmedc2l.userauthstarter.socialAuthProviders;
 
+import com.ahmedc2l.userauthstarter.utils.GenericData;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterApiClient;

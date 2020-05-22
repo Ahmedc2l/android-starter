@@ -1,6 +1,5 @@
 package com.ahmedc2l.userauthstarter.views.fragments;
 
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -9,11 +8,9 @@ import android.os.Bundle;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +22,7 @@ import com.ahmedc2l.userauthstarter.databinding.FragmentLoginBinding;
 import com.ahmedc2l.userauthstarter.presenters.LoginPresenter;
 import com.ahmedc2l.userauthstarter.socialAuthProviders.AuthProvider;
 import com.ahmedc2l.userauthstarter.socialAuthProviders.FacebookData;
-import com.ahmedc2l.userauthstarter.socialAuthProviders.GenericData;
+import com.ahmedc2l.userauthstarter.utils.GenericData;
 import com.ahmedc2l.userauthstarter.socialAuthProviders.GoogleData;
 import com.ahmedc2l.userauthstarter.socialAuthProviders.TwitterData;
 import com.ahmedc2l.userauthstarter.utils.Constants;
@@ -38,9 +35,6 @@ import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
-import com.twitter.sdk.android.core.models.User;
-
-import org.json.JSONObject;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -49,6 +43,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Bas
     private Activity activity;
     private LoginPresenter loginPresenter;
     private MyDialog myDialog;
+    private FragmentLoginBinding binding;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -63,7 +58,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Bas
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        FragmentLoginBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false);
+        binding = FragmentLoginBinding.inflate(inflater, container, false);
         binding.textViewRegister.setOnClickListener(this);
         binding.buttonFacbook.setOnClickListener(this);
         binding.buttonGoogle.setOnClickListener(this);
@@ -77,7 +72,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Bas
                 activity.finish();
             }
         };
-        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
 
         return binding.getRoot();
     }
@@ -100,7 +95,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Bas
                 AuthProvider facebook = new AuthProvider(new FacebookData(activity, AuthActivity.callbackManager));
                 facebook.getUserData((genericData, isSuccess) -> {
                     if (isSuccess)
-                        loginPresenter.loginWithSocial(genericData, Constants.FACEBOOK);
+                        loginPresenter.loginWithSocial(genericData, Constants.SocialProviders.FACEBOOK);
                     else
                         showErrorMessage(genericData.getValue().toString());
                 });
@@ -116,7 +111,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Bas
                         AuthProvider twitter = new AuthProvider(new TwitterData(result.data));
                         twitter.getUserData((genericData, isSuccess) -> {
                             if(isSuccess)
-                                loginPresenter.loginWithSocial(genericData, Constants.TWITTER);
+                                loginPresenter.loginWithSocial(genericData, Constants.SocialProviders.TWITTER);
                             else
                                 showErrorMessage(genericData.getValue().toString());
                         });
@@ -149,7 +144,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Bas
                     GenericData<GoogleSignInAccount> genericData = new GenericData<>();
                     genericData.setValue(account);
 
-                    loginPresenter.loginWithSocial(genericData, Constants.GOOGLE);
+                    loginPresenter.loginWithSocial(genericData, Constants.SocialProviders.GOOGLE);
                 }
                 else
                     showErrorMessage("Google account is null :(");

@@ -3,7 +3,7 @@ package com.ahmedc2l.userauthstarter.socialAuthProviders;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.ahmedc2l.userauthstarter.R;
+import com.ahmedc2l.userauthstarter.utils.GenericData;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;

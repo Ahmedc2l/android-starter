@@ -10,9 +10,12 @@ import java.util.Map;
  * */
 public interface RegisterContract {
     interface View{
-        // TODO here you define all the view actions you wanna perform in the register fragment
+        // TODO here you define all the view or UI actions you wanna perform in the register fragment
     }
 
+    /**
+     * @see com.ahmedc2l.userauthstarter.presenters.RegisterPresenter
+     * */
     interface Presenter{
         /**
          * <h3>register</h3>

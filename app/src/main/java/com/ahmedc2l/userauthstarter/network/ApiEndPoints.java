@@ -23,4 +23,6 @@ public interface ApiEndPoints {
     Call<ResponseBody> LOGIN(@HeaderMap Map<String, String> headers, @Body Map<String, Object> body);
     @POST("")
     Call<ResponseBody> LOGIN_SOCIAL(@HeaderMap Map<String, String> headers, @Body Map<String, Object> body);
+    @POST("")
+    Call<ResponseBody> REGISTER(@HeaderMap Map<String, String> headers, @Body Map<String, Object> body);
 }

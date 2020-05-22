@@ -13,11 +13,9 @@ import com.ahmedc2l.userauthstarter.R;
 
 public class ForgotPasswordFragment extends Fragment {
 
-
     public ForgotPasswordFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

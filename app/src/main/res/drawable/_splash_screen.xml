@@ -10,7 +10,7 @@
 
     <item>
         <!-- TODO add your application or brand icon -->
-        <bitmap android:src="@drawable/ahly" android:gravity="center"/>
+        <bitmap android:src="@drawable/ic_launcher_background" android:gravity="center"/>
     </item>
 
 </layer-list>

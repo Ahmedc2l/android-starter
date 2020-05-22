@@ -1,6 +1,7 @@
 package com.ahmedc2l.userauthstarter.contracts;
 
-import com.ahmedc2l.userauthstarter.socialAuthProviders.GenericData;
+import com.ahmedc2l.userauthstarter.utils.GenericData;
+import com.ahmedc2l.userauthstarter.utils.Constants;
 
 import java.util.Map;
 
@@ -12,9 +13,12 @@ import java.util.Map;
  * */
 public interface LoginContract {
     interface View{
-        // TODO here you define all the view actions you wanna perform in the login fragment
+        // TODO here you define all the view or UI actions you wanna perform in the login fragment
     }
 
+    /**
+     * @see com.ahmedc2l.userauthstarter.presenters.LoginPresenter
+     * */
     interface Presenter{
         /**
          * <h3>loginRegular</h3>
@@ -29,8 +33,9 @@ public interface LoginContract {
          * <p>login with different social media auth providers</p>
          *
          * @param genericData is a generic class
-         * @param socialAuthProvider an integer that represents the auth provider
+         * @param socialAuthProvider a value of the social auth providers enum
+         * @see com.ahmedc2l.userauthstarter.utils.Constants.SocialProviders
          * */
-        void loginWithSocial(GenericData genericData, int socialAuthProvider);
+        void loginWithSocial(GenericData genericData, Constants.SocialProviders socialAuthProvider);
     }
 }
